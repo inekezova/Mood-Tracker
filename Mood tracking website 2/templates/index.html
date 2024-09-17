@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mood and Weather Tracker</title>
+
+    <!-- Link to the CSS file -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Form container -->
+    <form action="/" method="POST">
+      <h1>Mood and Weather Tracker</h1>
+
+      <!-- Show error if weather data fetching fails -->
+      {% if error %}
+      <p style="color: red;">{{ error }}</p>
+      {% endif %}
+
+      <!-- Input field for user's name -->
+      <div>
+        <label for="name">What is your name?</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+        />
+      </div>
+
+      <!-- Dropdown to select mood -->
+      <div>
+        <label for="mood">How are you feeling today?</label>
+        <select id="mood" name="mood" required>
+          <option value="">Select your mood</option>
+          <option value="Happy">😊 Happy</option>
+          <option value="Sad">😢 Sad</option>
+          <option value="Frustrated">😠 Frustrated</option>
+          <option value="Neutral">😐 Neutral</option>
+          <option value="Tired">😴 Tired</option>
+        </select>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
